@@ -9,11 +9,6 @@ const Team2 = () => {
             image: "/pngtree-cute-school-student-cartoon-charactor-png-image_12329100.png"
         },
         {
-            name: "Tào Việt Đức",
-            mssv: "MSSV: 21110169",
-            image: "/pngtree-cute-school-student-cartoon-charactor-png-image_12329100.png"
-        },
-        {
             name: "Trần Nguyễn Trí Đạt", 
             mssv: "MSSV: 21110162",
             image: "/pngtree-adorable-3d-cartoon-boy-with-playful-expression-png-image_16641677.png"
