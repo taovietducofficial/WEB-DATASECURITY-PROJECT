@@ -26,10 +26,20 @@ const Team2 = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-gradient-to-b from-blue-100 via-white to-blue-100">
-            <div className="container mx-auto px-4 py-20">
+        <div className="min-h-screen relative overflow-hidden bg-gradient-to-br from-emerald-100 via-teal-50 to-cyan-100">
+            {/* Animated background elements */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-100 via-white to-blue-100">
+                <div className="absolute top-0 left-0 w-full h-full">
+                    <div className="absolute w-96 h-96 bg-blue-300/20 rounded-full blur-3xl animate-blob"></div>
+                    <div className="absolute w-96 h-96 bg-indigo-300/20 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+                    <div className="absolute w-96 h-96 bg-purple-300/20 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-white/80 to-transparent backdrop-blur-sm"></div>
+            </div>
+
+            <div className="container mx-auto px-4 py-20 relative z-10">
                 <div className="text-center mb-20">
-                    <h1 className="text-5xl font-bold mb-8 py-4 bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent animate-pulse transform hover:scale-105 transition-all duration-300 relative">
+                    <h1 className="text-5xl font-bold mb-8 py-4 bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent transform hover:scale-105 transition-all duration-300 relative">
                         Đội Ngũ Phát Triển
                         <span className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-gradient-to-r from-blue-600 to-blue-900 rounded-full"></span>
                     </h1>
@@ -40,10 +50,10 @@ const Team2 = () => {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 max-w-7xl mx-auto">
                     {teamMembers.map((member, index) => (
-                        <div key={index} className="group">
-                            <div className="bg-white rounded-3xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-500 hover:shadow-2xl border-2 border-transparent hover:border-blue-300">
+                        <div key={index} className="group flex justify-center w-72">
+                            <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl overflow-hidden transform hover:scale-105 transition-all duration-500 hover:shadow-2xl border-2 border-transparent hover:border-blue-300 w-full">
                                 <div className="h-72 overflow-hidden relative">
                                     <div className="absolute inset-0 bg-gradient-to-b from-blue-500/20 to-transparent z-10" />
                                     <img
@@ -53,11 +63,11 @@ const Team2 = () => {
                                         onError={(e) => { e.target.src = "/default-avatar.jpg" }}
                                     />
                                 </div>
-                                <div className="p-8 bg-gradient-to-br from-white to-blue-50">
-                                    <h3 className="text-2xl font-bold text-blue-900 mb-3 hover:text-blue-600 transition-colors duration-300">
+                                <div className="p-8 bg-gradient-to-br from-white/90 to-blue-50/90 text-center">
+                                    <h3 className="text-2xl font-bold text-blue-900 mb-3 hover:text-blue-600 transition-colors duration-300 whitespace-nowrap">
                                         {member.name}
                                     </h3>
-                                    <p className="text-lg font-semibold text-blue-600 tracking-wide bg-blue-100/70 py-2 px-4 rounded-lg inline-block shadow-sm">
+                                    <p className="text-lg font-semibold text-blue-600 tracking-wide bg-blue-100/70 py-2 px-4 rounded-lg inline-block shadow-sm whitespace-nowrap">
                                         {member.mssv}
                                     </p>
                                 </div>
@@ -67,7 +77,7 @@ const Team2 = () => {
                 </div>
 
                 <div className="mt-24 text-center">
-                    <div className="bg-white rounded-3xl shadow-xl p-16 mx-auto max-w-5xl backdrop-blur-sm bg-white/90 border border-blue-100">
+                    <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-16 mx-auto max-w-5xl border border-blue-100 hover:bg-white/90 transition-all duration-500">
                         <h2 className="text-4xl font-bold text-blue-900 mb-10 bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent">
                             Về Dự Án Của Chúng Tôi
                         </h2>

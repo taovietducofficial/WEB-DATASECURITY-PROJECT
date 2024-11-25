@@ -50,7 +50,7 @@ const Navbar = () => {
                         <Link to="/login" className={`text-white px-4 py-2 rounded-lg text-base font-medium transition-all duration-300 transform hover:scale-105 ${isActive('/login') ? 'bg-blue-700 text-blue-200' : 'hover:text-blue-200 hover:bg-blue-700'}`}>
                             Đăng Nhập
                         </Link>
-                        <Link to="/register" className={`bg-white text-blue-600 px-6 py-2 rounded-lg text-base font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-md ${isActive('/register') ? 'bg-blue-100' : 'hover:bg-blue-100'}`}>
+                        <Link to="/signup" className={`bg-white text-blue-600 px-6 py-2 rounded-lg text-base font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-md ${isActive('/register') ? 'bg-blue-100' : 'hover:bg-blue-100'}`}>
                             Đăng Ký
                         </Link>
                     </div>
@@ -86,7 +86,7 @@ const Navbar = () => {
                         <Link to="/login" className={`text-white block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 transform hover:translate-x-2 ${isActive('/login') ? 'bg-blue-600' : 'hover:bg-blue-600'}`}>
                             Đăng Nhập
                         </Link>
-                        <Link to="/register" className={`text-white block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 transform hover:translate-x-2 ${isActive('/register') ? 'bg-blue-600' : 'hover:bg-blue-600'}`}>
+                        <Link to="/signup" className={`text-white block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 transform hover:translate-x-2 ${isActive('/register') ? 'bg-blue-600' : 'hover:bg-blue-600'}`}>
                             Đăng Ký
                         </Link>
                     </div>

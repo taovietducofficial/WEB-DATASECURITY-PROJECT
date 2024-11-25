@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
   const [formData, setFormData] = useState({
-    username: '',
+    email: '',
     password: ''
   });
 
@@ -15,84 +16,77 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Xử lý đăng nhập
     console.log(formData);
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 to-blue-100">
-      <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl p-10 transform hover:scale-[1.02] transition-all duration-300">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-200 py-12 px-4 sm:px-6 lg:px-8 flex items-center justify-center">
+      <div className="max-w-md w-full bg-white rounded-2xl shadow-2xl p-10 transform hover:scale-[1.02] transition-transform duration-300">
         <div className="text-center mb-10">
-          <h2 className="text-4xl font-bold text-blue-800 mb-3">
-            Đăng Nhập
-          </h2>
-          <p className="text-gray-600">Vui lòng đăng nhập để tiếp tục</p>
+          <h2 className="text-4xl font-extrabold text-blue-800 mb-3">Đăng Nhập</h2>
+          <p className="text-gray-600 text-lg">Chào mừng quay trở lại</p>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-8">
-          <div className="relative">
-            <label className="block text-gray-700 font-semibold mb-2">
-              Tên đăng nhập
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="group">
+            <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-2">
+              Email
             </label>
-            <div className="relative">
-              <span className="absolute left-3 top-3.5 text-gray-400">
-                <i className="fas fa-user"></i>
-              </span>
-              <input
-                type="text"
-                name="username"
-                value={formData.username}
-                onChange={handleChange}
-                className="w-full pl-10 pr-4 py-3 border-2 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
-                required
-                placeholder="Nhập tên đăng nhập"
-              />
-            </div>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+              placeholder="example@email.com"
+            />
           </div>
 
-          <div className="relative">
-            <label className="block text-gray-700 font-semibold mb-2">
+          <div className="group">
+            <label htmlFor="password" className="block text-sm font-semibold text-gray-700 mb-2">
               Mật khẩu
             </label>
-            <div className="relative">
-              <span className="absolute left-3 top-3.5 text-gray-400">
-                <i className="fas fa-lock"></i>
-              </span>
-              <input
-                type="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                className="w-full pl-10 pr-4 py-3 border-2 rounded-xl focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
-                required
-                placeholder="Nhập mật khẩu"
-              />
-            </div>
+            <input
+              type="password"
+              name="password"
+              id="password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+              className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300"
+              placeholder="••••••••"
+            />
           </div>
 
-          <div className="flex items-center justify-between text-sm">
-            <label className="flex items-center">
-              <input type="checkbox" className="form-checkbox h-4 w-4 text-blue-600" />
-              <span className="ml-2 text-gray-600">Ghi nhớ đăng nhập</span>
+          <div className="flex items-center justify-between text-base">
+            <label className="flex items-center cursor-pointer group">
+              <input type="checkbox" className="form-checkbox h-5 w-5 text-blue-600 rounded border-2 border-gray-300" />
+              <span className="ml-3 text-gray-600 group-hover:text-blue-600 transition-colors duration-200">Ghi nhớ đăng nhập</span>
             </label>
-            <a href="#" className="text-blue-600 hover:text-blue-800 font-medium">
+            <Link to="#" className="font-bold text-blue-600 hover:text-blue-800 transition-colors duration-300">
               Quên mật khẩu?
-            </a>
+            </Link>
           </div>
 
-          <button
-            type="submit"
-            className="w-full bg-blue-600 text-white py-4 rounded-xl font-semibold hover:bg-blue-700 transform hover:-translate-y-0.5 transition-all duration-200 shadow-lg hover:shadow-xl"
-          >
-            Đăng Nhập
-          </button>
+          <div className="pt-4">
+            <button
+              type="submit"
+              className="w-full py-3 px-6 text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl text-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300 hover:from-blue-700 hover:to-blue-800"
+            >
+              Đăng Nhập
+            </button>
+          </div>
         </form>
 
-        <div className="mt-8 text-center text-gray-600">
-          <p>Bạn gặp vấn đề khi đăng nhập?</p>
-          <a href="#" className="text-blue-600 hover:text-blue-800 font-medium">
-            Liên hệ hỗ trợ
-          </a>
+        <div className="mt-8 text-center">
+          <p className="text-gray-600">
+            Bạn gặp vấn đề khi đăng nhập?{' '}
+            <Link to="#" className="font-bold text-blue-600 hover:text-blue-800 transition-colors duration-300">
+              Liên hệ hỗ trợ
+            </Link>
+          </p>
         </div>
       </div>
     </div>
