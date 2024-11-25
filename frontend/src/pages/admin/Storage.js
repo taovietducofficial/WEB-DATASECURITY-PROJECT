@@ -115,33 +115,33 @@ const Storage = () => {
     });
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 p-8">
-      <div className="max-w-8xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-100 via-blue-200 to-blue-300 p-4 md:p-8">
+      <div className="max-w-full md:max-w-8xl mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-6 md:mb-8 gap-4">
           <Link
             to="/dashboard"
-            className="inline-flex items-center bg-white/90 px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+            className="w-full md:w-auto inline-flex items-center justify-center bg-white/90 px-4 md:px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
           >
             <span className="text-2xl mr-2">←</span>
             <span className="font-medium text-gray-700">Quay lại Dashboard</span>
           </Link>
           
-          <div className="text-right">
+          <div className="text-center md:text-right">
             <h2 className="text-sm text-blue-800 font-medium">Hệ thống quản lý</h2>
             <h3 className="text-gray-600">Phòng lưu trữ hộ chiếu</h3>
           </div>
         </div>
 
-        <div className="text-center mb-12">
-          <h1 className="text-6xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-800 to-blue-600 mb-4">
+        <div className="text-center mb-8 md:mb-12">
+          <h1 className="text-3xl md:text-5xl font-bold text-blue-900 mb-4">
             Kho Lưu Trữ Hộ Chiếu
           </h1>
-          <p className="text-gray-700 text-xl font-light">Hệ thống quản lý và theo dõi hồ sơ lưu trữ</p>
+          <p className="text-gray-700 text-lg md:text-xl font-light">Hệ thống quản lý và theo dõi hồ sơ lưu trữ</p>
         </div>
 
-        <div className="bg-white/95 backdrop-blur-lg rounded-3xl p-8 shadow-2xl border border-white/50">
-          <div className="flex flex-wrap gap-4 mb-8">
-            <div className="flex-1">
+        <div className="bg-white/95 backdrop-blur-lg rounded-3xl p-4 md:p-8 shadow-2xl border border-white/50">
+          <div className="flex flex-col md:flex-row gap-4 mb-6 md:mb-8">
+            <div className="w-full md:flex-1">
               <div className="relative">
                 <input
                   type="text"
@@ -155,7 +155,7 @@ const Storage = () => {
             </div>
             
             <select 
-              className="px-5 py-3 border border-gray-200 rounded-xl focus:border-blue-400 focus:ring-2 focus:ring-blue-200 bg-white"
+              className="w-full md:w-auto px-5 py-3 border border-gray-200 rounded-xl focus:border-blue-400 focus:ring-2 focus:ring-blue-200 bg-white"
               value={filterStatus}
               onChange={(e) => setFilterStatus(e.target.value)}
             >
@@ -166,44 +166,103 @@ const Storage = () => {
           </div>
 
           <div className="overflow-x-auto rounded-xl border border-gray-100">
-            <table className="min-w-full divide-y divide-gray-200">
-              <thead className="bg-gray-50">
-                <tr>
-                  {['Họ và tên', 'Số hộ chiếu', 'Loại tài liệu', 'Ngày nộp', 'Ngày hết hạn', 'Nơi sinh', 'Giới tính', 'Quốc tịch', 'Trạng thái', 'Vị trí lưu trữ', 'Ghi chú', 'Thao tác'].map((header, index) => (
-                    <th 
-                      key={index}
-                      onClick={() => ['Họ và tên', 'Số hộ chiếu', 'Ngày nộp'].includes(header) ? handleSort(header === 'Họ và tên' ? 'name' : header === 'Số hộ chiếu' ? 'passportNo' : 'submissionDate') : null}
-                      className={`px-6 py-4 text-left text-sm font-semibold text-gray-600 ${['Họ và tên', 'Số hộ chiếu', 'Ngày nộp'].includes(header) ? 'cursor-pointer hover:bg-gray-100' : ''}`}
-                    >
-                      {header}
-                      {['Họ và tên', 'Số hộ chiếu', 'Ngày nộp'].includes(header) && sortField === (header === 'Họ và tên' ? 'name' : header === 'Số hộ chiếu' ? 'passportNo' : 'submissionDate') && 
-                        <span className="ml-2">{sortDirection === 'asc' ? '↑' : '↓'}</span>
-                      }
-                    </th>
+            <div className="min-w-full divide-y divide-gray-200">
+              {/* Desktop view */}
+              <table className="min-w-full divide-y divide-gray-200 hidden md:table">
+                <thead className="bg-gray-50">
+                  <tr>
+                    {['Họ và tên', 'Số hộ chiếu', 'Loại tài liệu', 'Ngày nộp', 'Ngày hết hạn', 'Nơi sinh', 'Giới tính', 'Quốc tịch', 'Trạng thái', 'Vị trí lưu trữ', 'Ghi chú', 'Thao tác'].map((header, index) => (
+                      <th 
+                        key={index}
+                        onClick={() => ['Họ và tên', 'Số hộ chiếu', 'Ngày nộp'].includes(header) ? handleSort(header === 'Họ và tên' ? 'name' : header === 'Số hộ chiếu' ? 'passportNo' : 'submissionDate') : null}
+                        className={`px-6 py-4 text-left text-sm font-semibold text-gray-600 ${['Họ và tên', 'Số hộ chiếu', 'Ngày nộp'].includes(header) ? 'cursor-pointer hover:bg-gray-100' : ''}`}
+                      >
+                        {header}
+                        {['Họ và tên', 'Số hộ chiếu', 'Ngày nộp'].includes(header) && sortField === (header === 'Họ và tên' ? 'name' : header === 'Số hộ chiếu' ? 'passportNo' : 'submissionDate') && 
+                          <span className="ml-2">{sortDirection === 'asc' ? '↑' : '↓'}</span>
+                        }
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-100">
+                  {filteredAndSortedDocuments.map((doc) => (
+                    <tr key={doc.id} className="hover:bg-gray-50 transition-colors">
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">{doc.name}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doc.passportNo}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doc.documentType}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doc.submissionDate}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doc.expiryDate}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doc.birthPlace}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doc.gender}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doc.nationality}</td>
+                      <td className="px-6 py-4 whitespace-nowrap">
+                        <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium
+                          ${doc.status === 'Đã lưu trữ' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
+                          {doc.status}
+                        </span>
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm">
+                        {doc.status === 'Chờ lưu trữ' ? (
+                          <select 
+                            className="w-full border rounded-lg px-3 py-1.5 text-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-200"
+                            onChange={(e) => handleUpdateLocation(doc.id, e.target.value)}
+                            value={doc.location}
+                          >
+                            <option value="Chưa phân kho">Chọn vị trí</option>
+                            <option value="Kho A - Ngăn 1">Kho A - Ngăn 1</option>
+                            <option value="Kho A - Ngăn 2">Kho A - Ngăn 2</option>
+                            <option value="Kho B - Ngăn 1">Kho B - Ngăn 1</option>
+                            <option value="Kho B - Ngăn 2">Kho B - Ngăn 2</option>
+                          </select>
+                        ) : (
+                          <span className="text-gray-600">{doc.location}</span>
+                        )}
+                      </td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doc.notes}</td>
+                      <td className="px-6 py-4 whitespace-nowrap text-sm">
+                        <button
+                          onClick={() => handleUpdateStatus(doc.id, doc.status === 'Đã lưu trữ' ? 'Chờ lưu trữ' : 'Đã lưu trữ')}
+                          className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                            doc.status === 'Đã lưu trữ' 
+                              ? 'bg-red-50 text-red-600 hover:bg-red-100' 
+                              : 'bg-blue-50 text-blue-600 hover:bg-blue-100'
+                          }`}
+                        >
+                          {doc.status === 'Đã lưu trữ' ? 'Hủy lưu trữ' : 'Xác nhận lưu trữ'}
+                        </button>
+                      </td>
+                    </tr>
                   ))}
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-100">
+                </tbody>
+              </table>
+
+              {/* Mobile view */}
+              <div className="md:hidden">
                 {filteredAndSortedDocuments.map((doc) => (
-                  <tr key={doc.id} className="hover:bg-gray-50 transition-colors">
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900 font-medium">{doc.name}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doc.passportNo}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doc.documentType}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doc.submissionDate}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doc.expiryDate}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doc.birthPlace}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doc.gender}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doc.nationality}</td>
-                    <td className="px-6 py-4 whitespace-nowrap">
+                  <div key={doc.id} className="bg-white p-4 rounded-lg mb-4 border border-gray-200">
+                    <div className="flex justify-between items-start mb-4">
+                      <div>
+                        <h3 className="font-medium text-gray-900">{doc.name}</h3>
+                        <p className="text-sm text-gray-600">{doc.passportNo}</p>
+                      </div>
                       <span className={`inline-flex items-center px-3 py-1 rounded-full text-xs font-medium
                         ${doc.status === 'Đã lưu trữ' ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800'}`}>
                         {doc.status}
                       </span>
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm">
+                    </div>
+                    
+                    <div className="space-y-2 text-sm">
+                      <p><span className="font-medium">Loại tài liệu:</span> {doc.documentType}</p>
+                      <p><span className="font-medium">Ngày nộp:</span> {doc.submissionDate}</p>
+                      <p><span className="font-medium">Ngày hết hạn:</span> {doc.expiryDate}</p>
+                      <p><span className="font-medium">Nơi sinh:</span> {doc.birthPlace}</p>
+                      <p><span className="font-medium">Giới tính:</span> {doc.gender}</p>
+                      <p><span className="font-medium">Quốc tịch:</span> {doc.nationality}</p>
+                      <p><span className="font-medium">Vị trí lưu trữ:</span></p>
                       {doc.status === 'Chờ lưu trữ' ? (
                         <select 
-                          className="w-full border rounded-lg px-3 py-1.5 text-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-200"
+                          className="w-full border rounded-lg px-3 py-2 mt-1 text-sm focus:border-blue-400 focus:ring-2 focus:ring-blue-200"
                           onChange={(e) => handleUpdateLocation(doc.id, e.target.value)}
                           value={doc.location}
                         >
@@ -216,12 +275,13 @@ const Storage = () => {
                       ) : (
                         <span className="text-gray-600">{doc.location}</span>
                       )}
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">{doc.notes}</td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm">
+                      <p><span className="font-medium">Ghi chú:</span> {doc.notes}</p>
+                    </div>
+
+                    <div className="mt-4">
                       <button
                         onClick={() => handleUpdateStatus(doc.id, doc.status === 'Đã lưu trữ' ? 'Chờ lưu trữ' : 'Đã lưu trữ')}
-                        className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
+                        className={`w-full px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                           doc.status === 'Đã lưu trữ' 
                             ? 'bg-red-50 text-red-600 hover:bg-red-100' 
                             : 'bg-blue-50 text-blue-600 hover:bg-blue-100'
@@ -229,11 +289,11 @@ const Storage = () => {
                       >
                         {doc.status === 'Đã lưu trữ' ? 'Hủy lưu trữ' : 'Xác nhận lưu trữ'}
                       </button>
-                    </td>
-                  </tr>
+                    </div>
+                  </div>
                 ))}
-              </tbody>
-            </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>
