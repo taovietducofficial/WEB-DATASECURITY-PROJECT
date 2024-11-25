@@ -73,6 +73,7 @@ const Login = () => {
           <div className="pt-4">
             <button
               type="submit"
+              onClick={() => window.location.href = '/dashboard'}
               className="w-full py-3 px-6 text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl text-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300 hover:from-blue-700 hover:to-blue-800"
             >
               Đăng Nhập

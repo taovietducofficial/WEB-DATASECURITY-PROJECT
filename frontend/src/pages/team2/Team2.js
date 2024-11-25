@@ -78,7 +78,7 @@ const Team2 = () => {
 
                 <div className="mt-24 text-center">
                     <div className="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl p-16 mx-auto max-w-5xl border border-blue-100 hover:bg-white/90 transition-all duration-500">
-                        <h2 className="text-4xl font-bold text-blue-900 mb-10 bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent">
+                        <h2 className="text-4xl font-bold text-blue-900 mb-10 bg-gradient-to-r from-blue-600 to-blue-900 bg-clip-text text-transparent py-2">
                             Về Dự Án Của Chúng Tôi
                         </h2>
                         <p className="text-gray-700 text-xl leading-relaxed mb-12">
