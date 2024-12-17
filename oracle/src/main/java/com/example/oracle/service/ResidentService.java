@@ -26,4 +26,22 @@ public class ResidentService {
         // Sử dụng phương thức save để tạo mới hoặc cập nhật đối tượng Resident
         return residentRepository.save(resident);
     }
+
+    public Resident updateResident(Long residentid, Resident updatedResident) {
+        // Kiểm tra xem Resident có tồn tại không
+        Resident resident = residentRepository.findById(residentid)
+                .orElseThrow(() -> new IllegalArgumentException("Resident not found with id " + residentid));
+
+        // Cập nhật các trường thông tin
+        resident.setAddress(updatedResident.getAddress());
+        resident.setDistrict(updatedResident.getDistrict());
+        resident.setEmail(updatedResident.getEmail());
+        resident.setFullName(updatedResident.getFullName());
+        resident.setGender(updatedResident.getGender());
+        resident.setIdCardNumber(updatedResident.getIdCardNumber());
+        resident.setPassportNumber(updatedResident.getPassportNumber());
+        resident.setPhoneNumber(updatedResident.getPhoneNumber());
+
+        return residentRepository.save(resident); // Lưu thông tin đã cập nhật
+    }
 }

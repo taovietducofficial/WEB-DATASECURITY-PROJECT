@@ -3,6 +3,7 @@ package com.example.oracle.controller;
 import com.example.oracle.entity.Resident;
 import com.example.oracle.service.ResidentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -25,5 +26,11 @@ public class ResidentController {
     @PostMapping("/create")
     public Resident createResident(@RequestBody Resident resident) {
         return residentService.createResident(resident);
+    }
+
+    @PutMapping("/{residentid}")
+    public ResponseEntity<Resident> updateResident(@PathVariable Long residentid, @RequestBody Resident updatedResident) {
+        Resident resident = residentService.updateResident(residentid, updatedResident);
+        return ResponseEntity.ok(resident); // Trả về thông tin người cư trú đã được cập nhật
     }
 }
