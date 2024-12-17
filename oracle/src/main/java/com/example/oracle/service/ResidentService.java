@@ -44,4 +44,11 @@ public class ResidentService {
 
         return residentRepository.save(resident); // Lưu thông tin đã cập nhật
     }
+
+    // Phương thức xóa thông tin
+    public void deleteResident(Long residentid) {
+        Resident resident = residentRepository.findById(residentid)
+                .orElseThrow(() -> new IllegalArgumentException("Resident not found with id " + residentid));
+        residentRepository.delete(resident);  // Xoá resident
+    }
 }

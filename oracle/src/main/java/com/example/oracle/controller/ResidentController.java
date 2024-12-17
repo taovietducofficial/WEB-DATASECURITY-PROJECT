@@ -33,4 +33,10 @@ public class ResidentController {
         Resident resident = residentService.updateResident(residentid, updatedResident);
         return ResponseEntity.ok(resident); // Trả về thông tin người cư trú đã được cập nhật
     }
+
+    @DeleteMapping("/{residentid}")
+    public ResponseEntity<String> deleteResident(@PathVariable Long residentid) {
+        residentService.deleteResident(residentid);
+        return ResponseEntity.ok("Resident deleted successfully");  // Trả về thông báo thành công
+    }
 }
