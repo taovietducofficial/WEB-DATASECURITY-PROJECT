@@ -54,7 +54,7 @@ const Approval = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-200 p-4 sm:p-6 md:p-8">
       <div className="max-w-7xl mx-auto">
         <Link
-          to="/dashboard"
+          to="/home"
           className="inline-flex items-center mb-6 sm:mb-8 bg-white px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg hover:shadow-2xl transform hover:scale-110 transition-all duration-300"
         >
           <span className="text-xl sm:text-2xl mr-2">⬅️</span>

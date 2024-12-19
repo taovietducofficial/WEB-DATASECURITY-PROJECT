@@ -5,39 +5,84 @@ const Verification = () => {
   const [applications, setApplications] = useState([
     {
       id: 1,
-      name: 'Nguyễn Văn A', 
-      dob: '01/01/1990',
-      passportNo: 'B1234567',
-      submissionDate: '2024-01-15',
+      name: 'Nguyen Minh Tu',
+      dob: 'N/A', // No dob data provided, you can leave it as N/A
+      passportNo: 'P987654',
+      submissionDate: '2024-01-15', // You can adjust dates as needed
       status: 'pending',
-      documents: ['CMND', 'Hộ chiếu cũ', 'Ảnh 4x6']
+      documents: ['ID Card', 'Passport', 'Photo']
     },
     {
       id: 2,
-      name: 'Trần Thị B',
-      dob: '15/06/1985', 
-      passportNo: 'B7654321',
+      name: 'Tran Thi Mai',
+      dob: 'N/A',
+      passportNo: 'P321456',
       submissionDate: '2024-01-14',
       status: 'pending',
-      documents: ['CCCD', 'Hộ chiếu cũ', 'Ảnh 4x6']
+      documents: ['ID Card', 'Passport', 'Photo']
     },
     {
       id: 3,
-      name: 'Lê Văn C',
-      dob: '22/08/1995',
-      passportNo: 'B9876543',
-      submissionDate: '2024-01-16', 
+      name: 'Hoang Thanh Son',
+      dob: 'N/A',
+      passportNo: 'P654789',
+      submissionDate: '2024-01-16',
       status: 'pending',
-      documents: ['CCCD', 'Hộ chiếu cũ', 'Ảnh 4x6']
+      documents: ['ID Card', 'Passport', 'Photo']
     },
     {
       id: 4,
-      name: 'Phạm Thị D',
-      dob: '30/12/1992',
-      passportNo: 'B2468135',
+      name: 'Nguyen Hoai Thu',
+      dob: 'N/A',
+      passportNo: 'P987321',
       submissionDate: '2024-01-16',
-      status: 'pending', 
-      documents: ['CMND', 'Hộ chiếu cũ', 'Ảnh 4x6']
+      status: 'pending',
+      documents: ['ID Card', 'Passport', 'Photo']
+    },
+    {
+      id: 5,
+      name: 'Phan Duy Khanh',
+      dob: 'N/A',
+      passportNo: 'P741369',
+      submissionDate: '2024-01-18',
+      status: 'pending',
+      documents: ['ID Card', 'Passport', 'Photo']
+    },
+    {
+      id: 6,
+      name: 'Tao Viet Dưc',
+      dob: 'N/A',
+      passportNo: 'P741370',
+      submissionDate: '2024-01-19',
+      status: 'pending',
+      documents: ['ID Card', 'Passport', 'Photo']
+    },
+    {
+      id: 7,
+      name: 'Tao Viet Hoang',
+      dob: 'N/A',
+      passportNo: 'P741390',
+      submissionDate: '2024-01-20',
+      status: 'pending',
+      documents: ['ID Card', 'Passport', 'Photo']
+    },
+    {
+      id: 8,
+      name: 'Nguyễn Văn E',
+      dob: 'N/A',
+      passportNo: 'P987999',
+      submissionDate: '2024-01-22',
+      status: 'pending',
+      documents: ['ID Card', 'Passport', 'Photo']
+    },
+    {
+      id: 9,
+      name: 'Thu Duc',
+      dob: 'N/A',
+      passportNo: 'P987800',
+      submissionDate: '2024-01-23',
+      status: 'pending',
+      documents: ['ID Card', 'Passport', 'Photo']
     }
   ]);
 
@@ -57,7 +102,7 @@ const Verification = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-200 p-4 sm:p-6 md:p-8">
       <div className="max-w-7xl mx-auto">
         <Link
-          to="/dashboard"
+          to="/home"
           className="inline-flex items-center mb-6 sm:mb-8 bg-white px-4 sm:px-6 py-2 sm:py-3 rounded-full shadow-lg hover:shadow-2xl transform hover:scale-110 transition-all duration-300"
         >
           <span className="text-xl sm:text-2xl mr-2">⬅️</span>

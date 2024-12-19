@@ -50,9 +50,9 @@ const Navbar = () => {
                         <Link to="/login" className={`text-white px-3 py-1 md:px-4 md:py-2 rounded-lg text-sm md:text-base font-medium transition-all duration-300 transform hover:scale-105 ${isActive('/login') ? 'bg-blue-700 text-blue-200' : 'hover:text-blue-200 hover:bg-blue-700'}`}>
                             Đăng Nhập
                         </Link>
-                        <Link to="/signup" className={`bg-white text-blue-600 px-4 py-1 md:px-6 md:py-2 rounded-lg text-sm md:text-base font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-md ${isActive('/register') ? 'bg-blue-100' : 'hover:bg-blue-100'}`}>
+                        {/* <Link to="/signup" className={`bg-white text-blue-600 px-4 py-1 md:px-6 md:py-2 rounded-lg text-sm md:text-base font-medium transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-md ${isActive('/register') ? 'bg-blue-100' : 'hover:bg-blue-100'}`}>
                             Đăng Ký
-                        </Link>
+                        </Link> */}
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -100,9 +100,9 @@ const Navbar = () => {
                             <Link to="/login" onClick={toggleMobileMenu} className={`text-white w-full text-center px-4 py-3 rounded-lg text-lg font-medium transition-all duration-300 ${isActive('/login') ? 'bg-blue-700' : 'hover:bg-blue-700'}`}>
                                 Đăng Nhập
                             </Link>
-                            <Link to="/signup" onClick={toggleMobileMenu} className="bg-white w-full text-center text-blue-600 px-4 py-3 rounded-lg text-lg font-medium transition-all duration-300 hover:bg-blue-100">
+                            {/* <Link to="/signup" onClick={toggleMobileMenu} className="bg-white w-full text-center text-blue-600 px-4 py-3 rounded-lg text-lg font-medium transition-all duration-300 hover:bg-blue-100">
                                 Đăng Ký
-                            </Link>
+                            </Link> */}
                         </div>
                     </div>
                 </div>

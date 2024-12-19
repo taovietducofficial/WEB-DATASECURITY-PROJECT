@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
+
+  const navigate = useNavigate(); // Use useNavigate instead of useHistory
 
   const handleChange = (e) => {
     setFormData({
@@ -16,8 +18,26 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    // Check login credentials
+    const validUsers = [
+      { username: 'XT_USER', password: '123', redirectTo: '/verification' },
+      { username: 'XD_USER', password: '1234', redirectTo: '/approval' },
+      { username: 'LT_USER', password: '12345', redirectTo: '/storage' },
+      { username: 'GS_USER', password: '123456', redirectTo: '/dashboard' }
+    ];
+  
+    const user = validUsers.find(
+      (user) => user.username === formData.email && user.password === formData.password
+    );
+  
+    if (user) {
+      navigate(user.redirectTo); // Navigate based on the user's redirectTo value
+    } else {
+      alert('Invalid credentials'); // Show alert if credentials are incorrect
+    }
   };
+  
+
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-100 to-blue-200 p-4 sm:p-6 md:p-8 flex items-center justify-center">
@@ -30,18 +50,19 @@ const Login = () => {
         <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
           <div className="group">
             <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1 sm:mb-2">
-              Email
+              Username
             </label>
             <input
-              type="email"
-              name="email"
+              type="text" // Thay đổi thành 'text' vì bạn đang dùng username
+              name="email" // Bạn có thể giữ tên là 'email' hoặc đổi thành 'username'
               id="email"
               value={formData.email}
               onChange={handleChange}
               required
               className="w-full px-3 sm:px-4 py-2 sm:py-3 border-2 border-gray-200 rounded-xl focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 text-sm sm:text-base"
-              placeholder="example@email.com"
+              placeholder="Username"
             />
+
           </div>
 
           <div className="group">
@@ -73,7 +94,6 @@ const Login = () => {
           <div className="pt-2 sm:pt-4">
             <button
               type="submit"
-              onClick={() => window.location.href = '/dashboard'}
               className="w-full py-2.5 sm:py-3 px-4 sm:px-6 text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl text-base sm:text-lg font-bold shadow-lg hover:shadow-xl transform hover:scale-[1.02] transition-all duration-300 hover:from-blue-700 hover:to-blue-800"
             >
               Đăng Nhập

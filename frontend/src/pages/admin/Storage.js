@@ -119,11 +119,11 @@ const Storage = () => {
       <div className="max-w-full md:max-w-8xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center mb-6 md:mb-8 gap-4">
           <Link
-            to="/dashboard"
+            to="/home"
             className="w-full md:w-auto inline-flex items-center justify-center bg-white/90 px-4 md:px-6 py-3 rounded-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
           >
             <span className="text-2xl mr-2">←</span>
-            <span className="font-medium text-gray-700">Quay lại Dashboard</span>
+            <span className="font-medium text-gray-700">Quay lại </span>
           </Link>
           
           <div className="text-center md:text-right">
