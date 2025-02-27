@@ -1,7 +1,7 @@
 # Passport Renewal Process
 ## INTRODUCTION
 
-### Personal Project (Team: 4 members - My responsibilities: Developing the Frontend using ReactJS & Developing the Backend using Spring Boot)
+### Personal Project (Team: 4 members - My responsibilities: Leader, Developing the Frontend using ReactJS & Developing the Backend using Spring Boot)
 <p align="center">
   <img src="https://github.com/taovietducofficial/WEB-DATASECURITY-PROJECT/blob/master/Screenshot%202025-02-26%20164019.png" width="1000" />
 </p>
